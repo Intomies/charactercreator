@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Character Creator</title>
+<meta charset="ISO-8859-1">
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+
+	<nav style="background-color: gray; padding: 0px 5px 0px 5px;">
+		<a href="/charlist" class="btn btn-success">Character List</a>
+		<a href="/addownchar" class="btn btn-success">Make your own</a>	
+		<div style="float: right;">
+			<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-danger" />
+			</form>
+		</div>
+	</nav>
+	<div style="margin:auto;">
+		<div class="col-md-4" style="padding: 5px" >
+		<h1>Character Creator</h1>
+		</div>
+		<div class="col-md-4" style="padding: 5px">
+		<h3 th:inline="text">Welcome, traveler!</h3>
+		</div>
+		<p style="padding: 5px">You have wondered in to my Character creator page. Feel free to look around!</p>
+	</div>
+	
+</body>
+</html>

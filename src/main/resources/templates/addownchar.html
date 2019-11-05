@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>New Character</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css"
+	th:href="@{../css/bootstrap.min.css}" />
+</head>
+
+<body>
+
+	<nav style="background-color: gray; padding: 0px 5px 0px 5px;">
+		<a href="/charlist" class="btn btn-success">Character List</a>
+		<a href="/index" class="btn btn-success">Main Page</a>	
+		<div style="float: right;">
+			<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-danger" />
+			</form>
+		</div>
+	</nav>
+	
+	<h1 style="padding: 5px">New Character</h1>
+	
+	<div class="input-form" style="padding: 5px">
+		<form action="#" th:action="@{/addownchar}"  th:object= ${character} method="post">
+		<input type="hidden" th:field="${character.id}" class="form-control" />
+		<p>Name: <input type="text" th:field="${character.name}" /></p>
+		
+		<table>
+			<tr>
+				<td><label for="racerepo">Race:</label>
+					<select id="racerepo" th:field="*{race}" class="form-control">
+						<option th:each="race: ${races}" th:value="${race.id}" th:text="${race.name}"></option>
+					</select>
+				</td>
+				<td><label for="armorrepo">Armor:</label>
+					<select id="armorrepo" th:field="*{armor}" class="form-control">
+						<option th:each="armor: ${armors}" th:value="${armor.id}" th:text="${armor.name}"></option>
+					</select>
+				</td>
+				<td><label for="mhrepo">Main-Hand:</label>
+					<select id="mhrepo" th:field="*{mainHand}" class="form-control">
+						<option th:each="mainhand: ${mainhands}" th:value="${mainhand.id}" th:text="${mainhand.name}"></option>
+					</select>
+				</td>
+				<td><label for="ohrepo">Off-Hand:</label>
+					<select id="ohrepo" th:field="*{offHand}" class="form-control">
+						<option th:each="offhand: ${offhands}" th:value="${offhand.id}" th:text="${offhand.name}"></option>
+					</select>
+				</td>
+			<tr>
+			<tr>
+				<td>
+				<p>Strength: <input type="number" th:field="${character.str}"/></p>
+				</td>
+				<td>
+				<p>Constitution: <input type="number" th:field="${character.con}"/></p>
+				</td>
+				<td>
+				<p>Dexterity: <input type="number" th:field="${character.dex}"/></p>
+				</td>
+				<td>
+				<p>Wisdom: <input type="number" th:field="${character.wis}"/></p>
+				</td>
+				<td>
+				<p>Intelligence: <input type="number" th:field="${character.inte}"/></p>
+				</td>
+				<td>
+				<p>Charisma: <input type="number" th:field="${character.cha}"/></p>
+				</td>
+			</tr>
+		</table>
+		<div style="clear: both; display: block; height: 10px;"></div>
+
+		<div style="clear: both; display: block; height: 10px;"></div>
+		<input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+		</form>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>List of Characters</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css"
+	th:href="@{../css/bootstrap.min.css}" />
+</head>
+<body>
+
+	<nav style="background-color: gray; padding: 0px 5px 0px 5px;">
+		<a href="/index" class="btn btn-success">Main Page</a>
+		<a href="/addownchar" class="btn btn-success">Make your own</a>	
+		<div style="float: right;">
+			<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-danger" />
+			</form>
+		</div>
+	</nav>
+	
+	<h1 style="padding: 5px">List of Characters</h1>
+		
+		<table class="table table-striped">
+		
+			<tr>
+				<th>Name</th>
+				<th>Race</th>
+				<th>Armor</th>
+				<th>Main-Hand</th>
+				<th>Off-Hand</th>
+				<th>Str</th>
+				<th>Dex</th>
+				<th>Con</th>
+				<th>Wis</th>
+				<th>Int</th>
+				<th>Cha</th>
+				<th>Attack</th>
+				<th>Defense</th>
+				<th>Armor</th>
+				<th>Damage</th>
+				<th>Health</th>
+				<th>Speed</th>
+			</tr>
+			
+			<tr th:each="character : ${characters}">
+				<td th:text="${character.name}">name</td>
+				<td th:text="${character.race.name}">race</td>
+				<td th:text="${character.armor.name}">armor</td>
+				<td th:text="${character.mainHand.name}">main-hand</td>
+				<td th:text="${character.offHand.name}">off-hand</td>
+				<td th:text="${character.str + character.race.buffStr}">str</td>
+				<td th:text="${character.dex + character.race.buffDex}">dex</td>
+				<td th:text="${character.con + character.race.buffCon}">con</td>
+				<td th:text="${character.wis + character.race.buffWis}">wis</td>
+				<td th:text="${character.inte + character.race.buffInte}">inte</td>
+				<td th:text="${character.cha + character.race.buffCha}">cha</td>
+				<td th:text="${character.attack}">attack</td>
+				<td th:text="${character.defence}">defense</td>
+				<td th:text="${character.armorTotal}">armor total</td>
+				<td th:text="${character.damageTotal}">damage total</td>
+				<td th:text="${character.charHealth}">health</td>
+				<td th:text="${character.charSpeed}">speed</td>
+				<td><a th:href="@{/editchar/{id}(id=${character.id})}" class="btn btn-outline-success">Edit</a></td>
+				<td sec:authorize="hasAuthority('ADMIN')"><a class="btn btn-outline-danger" th:href="@{/deletechar/{id}(id=${character.id})}">Delete</a></td>
+			</tr>
+		
+		</table>
+
+</body>
+</html>
