@@ -45,12 +45,12 @@ public class Character {
 	@ManyToOne
 	@JsonIgnore
 	@JoinColumn(name = "offHandId")
-	private Offhand offHand;
+	private OffHand offHand;
 
 	@ManyToOne
 	@JsonIgnore
 	@JoinColumn(name = "mainHandId")
-	private Mainhand mainHand;
+	private MainHand mainHand;
 
 	public Character() {
 		super();
@@ -79,7 +79,7 @@ public class Character {
 
 	public Character(Long id, String name, String culture, String gender, int str, int dex, int con, int wis, int inte,
 			int cha, int attack, int defence, int armorTotal, int damageTotal, int charHealth, int charSpeed,
-			int lowestStatValue, Race race, Armor armor, Offhand offHand, Mainhand mainHand) {
+			int lowestStatValue, Race race, Armor armor, OffHand offHand, MainHand mainHand) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -106,7 +106,7 @@ public class Character {
 
 	public Character(String name, String culture, String gender, int str, int dex, int con, int wis, int inte,
 			int cha, int attack, int defence, int armorTotal, int damageTotal, int charHealth, int charSpeed,
-			int lowestStatValue, Race race, Armor armor, Offhand offHand, Mainhand mainHand) {
+			int lowestStatValue, Race race, Armor armor, OffHand offHand, MainHand mainHand) {
 		super();
 		this.name = name;
 		this.culture = culture;
@@ -132,7 +132,7 @@ public class Character {
 	
 	public Character(String name, int str, int dex, int con, int wis, int inte,
 			int cha, int attack, int defence, int armorTotal, int damageTotal, int charHealth, int charSpeed,
-			int lowestStatValue, Race race, Armor armor, Offhand offHand, Mainhand mainHand) {
+			int lowestStatValue, Race race, Armor armor, OffHand offHand, MainHand mainHand) {
 		super();
 		this.name = name;
 		this.str = str;
@@ -222,11 +222,11 @@ public class Character {
 		this.armor = armor;
 	}
 
-	public void setOffHand(Offhand offHand) {
+	public void setOffHand(OffHand offHand) {
 		this.offHand = offHand;
 	}
 
-	public void setMainHand(Mainhand mainHand) {
+	public void setMainHand(MainHand mainHand) {
 		this.mainHand = mainHand;
 	}
 
@@ -314,11 +314,11 @@ public class Character {
 		return armor;
 	}
 
-	public Offhand getOffHand() {
+	public OffHand getOffHand() {
 		return offHand;
 	}
 
-	public Mainhand getMainHand() {
+	public MainHand getMainHand() {
 		return mainHand;
 	}
 

@@ -18,9 +18,9 @@ import hh.swd20.charactercreator.domain.Armor;
 import hh.swd20.charactercreator.domain.ArmorRepo;
 import hh.swd20.charactercreator.domain.Character;
 import hh.swd20.charactercreator.domain.CharacterRepo;
-import hh.swd20.charactercreator.domain.Mainhand;
+import hh.swd20.charactercreator.domain.MainHand;
 import hh.swd20.charactercreator.domain.MainHandRepo;
-import hh.swd20.charactercreator.domain.Offhand;
+import hh.swd20.charactercreator.domain.OffHand;
 import hh.swd20.charactercreator.domain.OffHandRepo;
 import hh.swd20.charactercreator.domain.Race;
 import hh.swd20.charactercreator.domain.RaceRepo;
@@ -125,14 +125,14 @@ public class charCreatorController {
 
 	// Restful get all mainhands
 	@GetMapping("/mainhands")
-	public @ResponseBody List<Mainhand> getMainhandsRest() {
-		return (List<Mainhand>) mhRepo.findAll();
+	public @ResponseBody List<MainHand> getMainhandsRest() {
+		return (List<MainHand>) mhRepo.findAll();
 	}
 
 	// Restful get all offhands
 	@GetMapping("/offhands")
-	public @ResponseBody List<Offhand> getOffhandsRest() {
-		return (List<Offhand>) ohRepo.findAll();
+	public @ResponseBody List<OffHand> getOffhandsRest() {
+		return (List<OffHand>) ohRepo.findAll();
 	}
 
 	// Restful get character by id
@@ -155,13 +155,13 @@ public class charCreatorController {
 
 	// Restful get mainhand by id
 	@GetMapping("/mainhands/{id}")
-	public @ResponseBody Optional<Mainhand> getMainHandRest(@PathVariable("id") Long mhId) {
+	public @ResponseBody Optional<MainHand> getMainHandRest(@PathVariable("id") Long mhId) {
 		return mhRepo.findById(mhId);
 	}
 
 	// Restful get offhand by id
 	@GetMapping("/offhands/{id}")
-	public @ResponseBody Optional<Offhand> getOffHandRest(@PathVariable("id") Long ohId) {
+	public @ResponseBody Optional<OffHand> getOffHandRest(@PathVariable("id") Long ohId) {
 		return ohRepo.findById(ohId);
 	}
 

@@ -15,9 +15,9 @@ import hh.swd20.charactercreator.domain.Armor;
 import hh.swd20.charactercreator.domain.ArmorRepo;
 import hh.swd20.charactercreator.domain.Character;
 import hh.swd20.charactercreator.domain.CharacterRepo;
-import hh.swd20.charactercreator.domain.Mainhand;
+import hh.swd20.charactercreator.domain.MainHand;
 import hh.swd20.charactercreator.domain.MainHandRepo;
-import hh.swd20.charactercreator.domain.Offhand;
+import hh.swd20.charactercreator.domain.OffHand;
 import hh.swd20.charactercreator.domain.OffHandRepo;
 import hh.swd20.charactercreator.domain.Race;
 import hh.swd20.charactercreator.domain.RaceRepo;
@@ -53,12 +53,12 @@ public class CharactercreatorApplication {
 			armorList.add(copper);
 
 			log.info("Create some Main-hands");
-			List<Mainhand> mhList = new ArrayList<Mainhand>();
-			Mainhand mhFist = new Mainhand("Fist", 1, 1, 5);
+			List<MainHand> mhList = new ArrayList<MainHand>();
+			MainHand mhFist = new MainHand("Fist", 1, 1, 5);
 			mhRepo.save(mhFist);
-			Mainhand mhWoodenStick = new Mainhand("Wooden Stick", 2, 2, 4);
+			MainHand mhWoodenStick = new MainHand("Wooden Stick", 2, 2, 4);
 			mhRepo.save(mhWoodenStick);
-			Mainhand copperKnife = new Mainhand("Copper Knife", 2, 2, 4);
+			MainHand copperKnife = new MainHand("Copper Knife", 2, 2, 4);
 			mhRepo.save(copperKnife);
 
 			mhList.add(mhFist);
@@ -66,10 +66,10 @@ public class CharactercreatorApplication {
 			mhList.add(copperKnife);
 
 			log.info("Create some Off-hands");
-			List<Offhand> ohList = new ArrayList<Offhand>();
-			Offhand ohFist = new Offhand("Fist", 1, 1, 5);
+			List<OffHand> ohList = new ArrayList<OffHand>();
+			OffHand ohFist = new OffHand("Fist", 1, 1, 5);
 			ohRepo.save(ohFist);
-			Offhand woodenBuckler = new Offhand("Wooden Buckler", 2, 5, 2);
+			OffHand woodenBuckler = new OffHand("Wooden Buckler", 2, 5, 2);
 			ohRepo.save(woodenBuckler);
 
 			ohList.add(ohFist);

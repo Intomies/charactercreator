@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface OffHandRepo extends CrudRepository<Offhand, Long> {
+public interface OffHandRepo extends CrudRepository<OffHand, Long> {
 	
-	List<Offhand> findByName(String name);
+	List<OffHand> findByName(String name);
 
 }

@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface MainHandRepo extends CrudRepository<Mainhand, Long> {
+public interface MainHandRepo extends CrudRepository<MainHand, Long> {
 	
-	List<Mainhand> findByName(String name);
+	List<MainHand> findByName(String name);
 	
 	
 
