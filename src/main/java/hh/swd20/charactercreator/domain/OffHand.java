@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class OffHand {
+public class Offhand {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -23,7 +23,7 @@ public class OffHand {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "offHand")
 	private List<Character> characters;
 	
-	public OffHand() {
+	public Offhand() {
 		super();
 		this.id = null;
 		this.name = null;
@@ -32,7 +32,7 @@ public class OffHand {
 		this.speed = 0;
 	}
 	
-	public OffHand(Long id, String name, int damage, int defence, int speed) {
+	public Offhand(Long id, String name, int damage, int defence, int speed) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -41,7 +41,7 @@ public class OffHand {
 		this.speed = speed;
 	}
 	
-	public OffHand(String name, int damage, int defence, int speed) {
+	public Offhand(String name, int damage, int defence, int speed) {
 		super();
 		this.name = name;
 		this.damage = damage;
