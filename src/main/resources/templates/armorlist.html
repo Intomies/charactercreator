@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>List of Armors</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css"
+	th:href="@{../css/bootstrap.min.css}" />
+</head>
+<body>
+
+	<nav style="background-color: gray; padding: 0px 5px 0px 5px;">
+		<a href="/index" class="btn btn-success">Main Page</a>
+		<a href="/charlist" class="btn btn-success">Character List</a>
+		<a href="/racelist" class="btn btn-success">Race List</a>
+		<a href="/armorlist" class="btn btn-success">Armor List</a>	
+		<a href="/addownarmor" class="btn btn-primary">New Armor</a>
+		
+		<div style="float: right;">
+			<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-danger" />
+			</form>
+		</div>
+	</nav>
+	
+	<h1 style="padding: 5px">List of Armors</h1>
+		
+		<table class="table table-striped">
+		
+			<tr>
+				<th>Name</th>
+				<th>Defence</th>
+				<th>Speed</th>
+			</tr>
+			
+			<tr th:each="armor : ${armors}">
+				<td th:text="${armor.name}">name</td>
+				<td th:text="${armor.defenceBuff}">race</td>
+				<td th:text="${armor.speedBuff}">armor</td>
+				<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/editarmor/{id}(id=${armor.id})}" class="btn btn-outline-success">Edit</a></td>
+				<td sec:authorize="hasAuthority('ADMIN')"><a class="btn btn-outline-danger" th:href="@{/deletearmor/{id}(id=${armor.id})}">Delete</a></td>
+			</tr>
+		
+		</table>
+
+</body>
+</html>

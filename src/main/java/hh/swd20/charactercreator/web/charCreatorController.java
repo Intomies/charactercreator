@@ -26,7 +26,7 @@ import hh.swd20.charactercreator.domain.OffHandRepo;
 import hh.swd20.charactercreator.domain.Race;
 import hh.swd20.charactercreator.domain.RaceRepo;
 
-@CrossOrigin(origins="*")
+@CrossOrigin(origins = "*")
 @Controller
 public class charCreatorController {
 
@@ -65,8 +65,8 @@ public class charCreatorController {
 	// List of characters in database
 	@GetMapping("/charlist")
 	public String getCharacters(Model model) {
-		// List<Character> characters = (List<Character>) charRepo.findAll();
-		model.addAttribute("characters", charRepo.findAll());
+		List<Character> characters = (List<Character>) charRepo.findAll();
+		model.addAttribute("characters", characters);
 		return "charlist";
 	}
 
@@ -107,8 +107,86 @@ public class charCreatorController {
 		return "redirect:../charlist";
 	}
 
-	//----REST METHODS----
-	
+	// ---ARMORS----
+
+	// List of armors in database
+	@GetMapping("/armorlist")
+	public String getArmors(Model model) {
+		List<Armor> armors = (List<Armor>) armorRepo.findAll();
+		model.addAttribute("armors", armors);
+		return "armorlist";
+	}
+
+	// Empty form for adding a new armor
+	@GetMapping("/addownarmor")
+	public String getEmptyArmorForm(Model model) {
+		model.addAttribute("armor", new Armor());
+		return "addownarmor";
+	}
+
+	// Save new armor
+	@PostMapping("addownarmor")
+	public String saveArmor(@ModelAttribute Armor armor) {
+		armorRepo.save(armor);
+		return "redirect:armorlist";
+	}
+
+	// Edit armor
+	@RequestMapping(value = "/editarmor/{id}")
+	public String editArmor(@PathVariable("id") Long armorId, Model model) {
+		model.addAttribute("armor", armorRepo.findById(armorId));
+		return "editarmorform";
+	}
+
+	// Delete armor from list
+	@PreAuthorize("hasAuthority('ADMIN')")
+	@GetMapping("/deletearmor/{id}")
+	public String deleteArmor(@PathVariable("id") Long armorId, Model model) {
+		armorRepo.deleteById(armorId);
+		return "redirect:../armorlist";
+	}
+
+	// ---RACES
+
+	// List of races in database
+	@GetMapping("/racelist")
+	public String getRaces(Model model) {
+		List<Race> races = (List<Race>) raceRepo.findAll();
+		model.addAttribute("races", races);
+		return "racelist";
+	}
+
+	// Empty form for adding a new race
+	@GetMapping("/addownrace")
+	public String getEmptyRaceForm(Model model) {
+		model.addAttribute("race", new Race());
+		return "addownrace";
+	}
+
+	// Save new race
+	@PostMapping("addownrace")
+	public String saveRace(@ModelAttribute Race race) {
+		raceRepo.save(race);
+		return "redirect:racelist";
+	}
+
+	// Edit race
+	@RequestMapping(value = "/editrace/{id}")
+	public String editRace(@PathVariable("id") Long raceId, Model model) {
+		model.addAttribute("race", raceRepo.findById(raceId));
+		return "editraceform";
+	}
+
+	// Delete race from list
+	@PreAuthorize("hasAuthority('ADMIN')")
+	@GetMapping("/deleterace/{id}")
+	public String deleteRace(@PathVariable("id") Long raceId, Model model) {
+		raceRepo.deleteById(raceId);
+		return "redirect:../racelist";
+	}
+
+	// ----REST METHODS----
+
 	// Restful get all characters
 	@GetMapping("/characters")
 	public @ResponseBody List<Character> getCharsRest() {

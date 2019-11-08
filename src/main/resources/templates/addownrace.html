@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>New Race</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css"
+	th:href="@{../css/bootstrap.min.css}" />
+</head>
+
+<body>
+
+	<nav style="background-color: gray; padding: 0px 5px 0px 5px;">
+		<a href="/racelist" class="btn btn-success">Race List</a>	
+		<a href="/index" class="btn btn-success">Main Page</a>	
+		<div style="float: right;">
+			<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-danger" />
+			</form>
+		</div>
+	</nav>
+	
+	<h1 style="padding: 5px">New Race</h1>
+	
+	<div class="input-form" style="padding: 5px">
+		<form action="#" th:action="@{/addownrace}"  th:object= ${race} method="post">
+		<input type="hidden" th:field="${race.id}" class="form-control" />
+		<p>Name: <input type="text" th:field="${race.name}" /></p>
+		
+		<table>
+			<tr>
+				<td>
+				<p>Strength Buff: <input type="number" th:field="${race.buffStr}"/></p>
+				</td>
+				<td>
+				<p>Dexterity Buff: <input type="number" th:field="${race.buffDex}"/></p>
+				</td>
+				<td>
+				<p>Constitution Buff: <input type="number" th:field="${race.buffCon}"/></p>
+				</td>
+				<td>
+				<p>Wisdom Buff: <input type="number" th:field="${race.buffWis}"/></p>
+				</td>
+				<td>
+				<p>Intelligence Buff: <input type="number" th:field="${race.buffInte}"/></p>
+				</td>
+				<td>
+				<p>Charisma Buff: <input type="number" th:field="${race.buffCha}"/></p>
+				</td>
+				<td>
+				<p>Mainhand DMG: <input type="number" th:field="${race.mainBasicDamage}"/></p>
+				</td>
+				<td>
+				<p>Offhand DMG: <input type="number" th:field="${race.offBasicDamage}"/></p>
+				</td>
+				<td>
+				<p>Basic Armor: <input type="number" th:field="${race.basicArmor}"/></p>
+				</td>
+			</table>
+		<div style="clear: both; display: block; height: 10px;"></div>
+
+		<div style="clear: both; display: block; height: 10px;"></div>
+		<input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+		</form>
+	</div>
+
+</body>
+</html>
