@@ -13,7 +13,7 @@
 		<a href="/charlist" class="btn btn-success">Character List</a>
 		<a href="/racelist" class="btn btn-success">Race List</a>
 		<a href="/armorlist" class="btn btn-success">Armor List</a>	
-		<a href="/addownrace" class="btn btn-primary">New Race</a>	
+		<a sec:authorize="hasAuthority('ADMIN')" href="/addownrace" class="btn btn-primary">New Race</a>	
 		<div style="float: right;">
 			<form th:action="@{/logout}" method="post">
 			<input type="submit" value="Sign Out" class="btn btn-danger" />
@@ -49,7 +49,7 @@
 				<td th:text="${race.mainBasicDamage}">attack</td>
 				<td th:text="${race.offBasicDamage}">defense</td>
 				<td th:text="${race.basicArmor}">armor</td>
-				<td><a th:href="@{/editrace/{id}(id=${race.id})}" class="btn btn-outline-success">Edit</a></td>
+				<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/editrace/{id}(id=${race.id})}" class="btn btn-outline-success">Edit</a></td>
 				<td sec:authorize="hasAuthority('ADMIN')"><a class="btn btn-outline-danger" th:href="@{/deleterace/{id}(id=${race.id})}">Delete</a></td>
 			</tr>
 		

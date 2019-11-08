@@ -13,7 +13,7 @@
 		<a href="/charlist" class="btn btn-success">Character List</a>
 		<a href="/racelist" class="btn btn-success">Race List</a>
 		<a href="/armorlist" class="btn btn-success">Armor List</a>	
-		<a href="/addownarmor" class="btn btn-primary">New Armor</a>
+		<a sec:authorize="hasAuthority('ADMIN')" href="/addownarmor" class="btn btn-primary">New Armor</a>
 		
 		<div style="float: right;">
 			<form th:action="@{/logout}" method="post">

@@ -118,6 +118,7 @@ public class charCreatorController {
 	}
 
 	// Empty form for adding a new armor
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping("/addownarmor")
 	public String getEmptyArmorForm(Model model) {
 		model.addAttribute("armor", new Armor());
@@ -125,6 +126,7 @@ public class charCreatorController {
 	}
 
 	// Save new armor
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@PostMapping("addownarmor")
 	public String saveArmor(@ModelAttribute Armor armor) {
 		armorRepo.save(armor);
@@ -132,6 +134,7 @@ public class charCreatorController {
 	}
 
 	// Edit armor
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/editarmor/{id}")
 	public String editArmor(@PathVariable("id") Long armorId, Model model) {
 		model.addAttribute("armor", armorRepo.findById(armorId));
@@ -157,6 +160,7 @@ public class charCreatorController {
 	}
 
 	// Empty form for adding a new race
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping("/addownrace")
 	public String getEmptyRaceForm(Model model) {
 		model.addAttribute("race", new Race());
@@ -164,6 +168,7 @@ public class charCreatorController {
 	}
 
 	// Save new race
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@PostMapping("addownrace")
 	public String saveRace(@ModelAttribute Race race) {
 		raceRepo.save(race);
@@ -171,6 +176,7 @@ public class charCreatorController {
 	}
 
 	// Edit race
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/editrace/{id}")
 	public String editRace(@PathVariable("id") Long raceId, Model model) {
 		model.addAttribute("race", raceRepo.findById(raceId));
