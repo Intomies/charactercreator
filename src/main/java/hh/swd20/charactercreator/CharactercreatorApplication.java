@@ -90,18 +90,12 @@ public class CharactercreatorApplication {
 
 			log.info("Create some Characters");
 			Random ran = new Random();
-			charRepo.save(new Character(genName() + " " + genName(), ran.nextInt(15) + 3, ran.nextInt(15) + 3,
-					ran.nextInt(15) + 3, ran.nextInt(15) + 3, ran.nextInt(15) + 3, ran.nextInt(15) + 3, 0, 0, 0, 0, 0,
-					0, 3, raceList.get(ran.nextInt(raceList.size())), armorList.get(ran.nextInt(armorList.size())),
-					ohList.get(ran.nextInt(ohList.size())), mhList.get(ran.nextInt(mhList.size()))));
-			charRepo.save(new Character(genName() + " " + genName(), ran.nextInt(15) + 3, ran.nextInt(15) + 3,
-					ran.nextInt(15) + 3, ran.nextInt(15) + 3, ran.nextInt(15) + 3, ran.nextInt(15) + 3, 0, 0, 0, 0, 0,
-					0, 3, raceList.get(ran.nextInt(raceList.size())), armorList.get(ran.nextInt(armorList.size())),
-					ohList.get(ran.nextInt(ohList.size())), mhList.get(ran.nextInt(mhList.size()))));
-			charRepo.save(new Character(genName() + " " + genName(), ran.nextInt(15) + 3, ran.nextInt(15) + 3,
-					ran.nextInt(15) + 3, ran.nextInt(15) + 3, ran.nextInt(15) + 3, ran.nextInt(15) + 3, 0, 0, 0, 0, 0,
-					0, 3, raceList.get(ran.nextInt(raceList.size())), armorList.get(ran.nextInt(armorList.size())),
-					ohList.get(ran.nextInt(ohList.size())), mhList.get(ran.nextInt(mhList.size()))));
+			for (int i = 0; i <= 3; i++) {
+				charRepo.save(new Character(genName() + " " + genName(), ran.nextInt(15) + 3, ran.nextInt(15) + 3,
+						ran.nextInt(15) + 3, ran.nextInt(15) + 3, ran.nextInt(15) + 3, ran.nextInt(15) + 3, 0, 0, 0, 0, 0,
+						0, 3, raceList.get(ran.nextInt(raceList.size())), armorList.get(ran.nextInt(armorList.size())),
+						ohList.get(ran.nextInt(ohList.size())), mhList.get(ran.nextInt(mhList.size()))));
+			}
 
 			// Create users: admin/admin user/user
 			log.info("create users");
@@ -110,10 +104,10 @@ public class CharactercreatorApplication {
 			uRepository.save(new User("admin", "admin@bookstore.com",
 					"$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN"));
 
-			log.info("Fetch all Characters");
-			for (Character character : charRepo.findAll()) {
-				log.info(character.toString());
-			}
+			/*
+			 * log.info("Fetch all Characters"); for (Character character :
+			 * charRepo.findAll()) { log.info(character.toString()); }
+			 */
 		};
 	}
 

@@ -9,29 +9,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class MainHand {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
 	private int damage;
 	private int defence;
 	private int speed;
-	
+
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "mainHand")
 	private List<Character> characters;
-	
-	public MainHand() {
-		super();
-		this.id = null;
-		this.name = null;
-		this.damage = 0;
-		this.defence = 0;
-		this.speed = 0;
-	}
-	
+
 	public MainHand(Long id, String name, int damage, int defence, int speed) {
 		super();
 		this.id = id;
@@ -40,7 +38,7 @@ public class MainHand {
 		this.defence = defence;
 		this.speed = speed;
 	}
-	
+
 	public MainHand(String name, int damage, int defence, int speed) {
 		super();
 		this.name = name;
@@ -48,70 +46,4 @@ public class MainHand {
 		this.defence = defence;
 		this.speed = speed;
 	}
-
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-	public void setDamage(int damage) {
-		this.damage = damage;
-	}
-
-
-	public void setDefence(int defence) {
-		this.defence = defence;
-	}
-
-
-	public void setSpeed(int speed) {
-		this.speed = speed;
-	}
-
-
-	public void setCharacters(List<Character> characters) {
-		this.characters = characters;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-
-	public String getName() {
-		return name;
-	}
-
-
-	public int getDamage() {
-		return damage;
-	}
-
-
-	public int getDefence() {
-		return defence;
-	}
-
-
-	public int getSpeed() {
-		return speed;
-	}
-
-
-	public List<Character> getCharacters() {
-		return characters;
-	}
-
-	@Override
-	public String toString() {
-		return "OffHand [id=" + id + ", name=" + name + ", damage=" + damage + ", defence=" + defence + ", speed="
-				+ speed + "]";
-	}	
-
 }

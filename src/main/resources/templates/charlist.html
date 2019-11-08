@@ -57,12 +57,12 @@
 				<td th:text="${character.wis + character.race.buffWis}">wis</td>
 				<td th:text="${character.inte + character.race.buffInte}">inte</td>
 				<td th:text="${character.cha + character.race.buffCha}">cha</td>
-				<td th:text="${character.attack}">attack</td>
-				<td th:text="${character.defence}">defense</td>
-				<td th:text="${character.armorTotal}">armor total</td>
-				<td th:text="${character.damageTotal}">damage total</td>
-				<td th:text="${character.charHealth}">health</td>
-				<td th:text="${character.charSpeed}">speed</td>
+				<td th:text="${character.str + character.dex + character.mainHand.damage + character.offHand.damage /2}">attack</td>
+				<td th:text="${character.mainHand.defence + character.offHand.defence + character.dex + character.con /2}">defense</td>
+				<td th:text="${character.armor.defenceBuff + character.race.basicArmor}">armor total</td>
+				<td th:text="${character.mainHand.damage + character.offHand.damage + (character.str/2)}">damage total</td>
+				<td th:text="${character.con * 2}">health</td>
+				<td th:text="${character.offHand.speed + character.mainHand.speed + character.dex /2}">speed</td>
 				<td><a th:href="@{/editchar/{id}(id=${character.id})}" class="btn btn-outline-success">Edit</a></td>
 				<td sec:authorize="hasAuthority('ADMIN')"><a class="btn btn-outline-danger" th:href="@{/deletechar/{id}(id=${character.id})}">Delete</a></td>
 			</tr>

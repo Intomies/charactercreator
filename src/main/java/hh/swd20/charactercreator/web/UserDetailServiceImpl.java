@@ -1,5 +1,8 @@
 package hh.swd20.charactercreator.web;
 
+import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,6 +17,7 @@ import hh.swd20.charactercreator.domain.UserRepository;
  * This class is used by spring security to authenticate and authorize user
  **/
 @Service
+@PersistenceContext(type = PersistenceContextType.EXTENDED)
 public class UserDetailServiceImpl implements UserDetailsService {
 	private final UserRepository repository;
 

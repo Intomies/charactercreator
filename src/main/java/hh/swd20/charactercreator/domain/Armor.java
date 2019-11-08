@@ -2,6 +2,10 @@ package hh.swd20.charactercreator.domain;
 
 import java.util.List;
 
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +14,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Armor {
 	
 	@Id
@@ -21,14 +28,6 @@ public class Armor {
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "armor")
 	private List<Character> characters;
-	
-	public Armor() {
-		super();
-		this.id = null;
-		this.name = null;
-		this.defenceBuff = 0;
-		this.speedBuff = 0;
-	}
 
 	
 	public Armor(Long id, String name, int defenceBuff, int speedBuff) {
@@ -49,59 +48,6 @@ public class Armor {
 	}
 
 
-	public void setId(Long id) {
-		this.id = id;
-	}
 
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-	public void setDefenceBuff(int defenceBuff) {
-		this.defenceBuff = defenceBuff;
-	}
-
-
-	public void setSpeedBuff(int speedBuff) {
-		this.speedBuff = speedBuff;
-	}
-
-
-	public void setCharacters(List<Character> characters) {
-		this.characters = characters;
-	}
-
-
-	public Long getId() {
-		return id;
-	}
-
-
-	public String getName() {
-		return name;
-	}
-
-
-	public int getDefenceBuff() {
-		return defenceBuff;
-	}
-
-
-	public int getSpeedBuff() {
-		return speedBuff;
-	}
-
-
-	public List<Character> getCharacters() {
-		return characters;
-	}
-
-
-	@Override
-	public String toString() {
-		return "Armor [id=" + id + ", name=" + name + ", defenceBuff=" + defenceBuff + ", speedBuff=" + speedBuff + "]";
-	}
 
 }
