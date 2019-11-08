@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +26,7 @@ import hh.swd20.charactercreator.domain.OffHandRepo;
 import hh.swd20.charactercreator.domain.Race;
 import hh.swd20.charactercreator.domain.RaceRepo;
 
+@CrossOrigin(origins="*")
 @Controller
 public class charCreatorController {
 
@@ -105,6 +107,8 @@ public class charCreatorController {
 		return "redirect:../charlist";
 	}
 
+	//----REST METHODS----
+	
 	// Restful get all characters
 	@GetMapping("/characters")
 	public @ResponseBody List<Character> getCharsRest() {

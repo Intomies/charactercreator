@@ -16,8 +16,6 @@ public class Character {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
-	private String culture;
-	private String gender;
 	private int str;
 	private int dex;
 	private int con;
@@ -56,8 +54,6 @@ public class Character {
 		super();
 		this.id = null;
 		this.name = null;
-		this.culture = null;
-		this.gender = null;
 		this.str = 0;
 		this.dex = 0;
 		this.con = 0;
@@ -83,8 +79,6 @@ public class Character {
 		super();
 		this.id = id;
 		this.name = name;
-		this.culture = culture;
-		this.gender = gender;
 		this.str = str;
 		this.dex = dex;
 		this.con = con;
@@ -109,8 +103,6 @@ public class Character {
 			int lowestStatValue, Race race, Armor armor, OffHand offHand, MainHand mainHand) {
 		super();
 		this.name = name;
-		this.culture = culture;
-		this.gender = gender;
 		this.str = str;
 		this.dex = dex;
 		this.con = con;
@@ -160,10 +152,6 @@ public class Character {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public void setCulture(String culture) {
-		this.culture = culture;
 	}
 
 	public void setStr(int str) {
@@ -230,10 +218,6 @@ public class Character {
 		this.mainHand = mainHand;
 	}
 
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
 	public void setLowestStatValue(int lowestStatValue) {
 		this.lowestStatValue = lowestStatValue;
 	}
@@ -244,10 +228,6 @@ public class Character {
 
 	public String getName() {
 		return name;
-	}
-
-	public String getCulture() {
-		return culture;
 	}
 
 	public int getStr() {
@@ -298,10 +278,6 @@ public class Character {
 		return charSpeed;
 	}
 
-	public String getGender() {
-		return gender;
-	}
-
 	public int getLowestStatValue() {
 		return lowestStatValue;
 	}
@@ -325,22 +301,12 @@ public class Character {
 	@Override
 	public String toString() {
 		
-		if (getCulture() == null && getGender() == null) {
-			
-			return "Character [id=" + id + ", name=" + name + ", str=" + getStr()
+		return "Character [id=" + id + ", name=" + name + ", str=" + getStr()
 			+ ", dex=" + getDex() + ", con=" + getCon() + ", wis=" + getWis() + ", inte=" + getInte() + ", cha=" + getCha() + ", attack="
 			+ getAttack() + ", defence=" + getDefence() + ", armorTotal=" + getArmorTotal() + ", damageTotal=" + getDamageTotal()
 			+ ", charHealth=" + getCharHealth() + ", charSpeed=" + getCharSpeed() + ", lowestStatValue=" + lowestStatValue
 			+ ", race=" + this.getRace() + ", armor=" + this.getArmor() + ", offHand=" + this.getOffHand() + ", mainHand=" + this.getMainHand() + "]";
 			
-		} else {
-		
-		return "Character [id=" + id + ", name=" + name + ", culture=" + culture + ", gender=" + gender + ", str=" + getStr()
-				+ ", dex=" + getDex() + ", con=" + getCon() + ", wis=" + getWis() + ", inte=" + getInte() + ", cha=" + getCha() + ", attack="
-				+ getAttack() + ", defence=" + getDefence() + ", armorTotal=" + getArmorTotal() + ", damageTotal=" + getDamageTotal()
-				+ ", charHealth=" + getCharHealth() + ", charSpeed=" + getCharSpeed() + ", lowestStatValue=" + lowestStatValue
-				+ ", race=" + this.getRace() + ", armor=" + this.getArmor() + ", offHand=" + this.getOffHand() + ", mainHand=" + this.getMainHand() + "]";
-		}
 	}
 
 
