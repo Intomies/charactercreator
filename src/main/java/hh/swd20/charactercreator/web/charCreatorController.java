@@ -61,6 +61,8 @@ public class charCreatorController {
 	public String indexPageEndPoint() {
 		return "index";
 	}
+	
+	//---CHARACTERS---
 
 	// List of characters in database
 	@GetMapping("/charlist")
@@ -89,6 +91,7 @@ public class charCreatorController {
 	}
 
 	// Edit Character
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/editchar/{id}")
 	public String editChar(@PathVariable("id") Long charId, Model model) {
 		model.addAttribute("character", charRepo.findById(charId));
@@ -149,7 +152,7 @@ public class charCreatorController {
 		return "redirect:../armorlist";
 	}
 
-	// ---RACES
+	// ---RACES---
 
 	// List of races in database
 	@GetMapping("/racelist")

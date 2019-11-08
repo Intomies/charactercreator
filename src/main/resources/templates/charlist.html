@@ -63,7 +63,7 @@
 				<td th:text="${character.mainHand.damage + character.offHand.damage + (character.str/2)}">damage total</td>
 				<td th:text="${character.con * 2}">health</td>
 				<td th:text="${character.offHand.speed + character.mainHand.speed + character.dex /2}">speed</td>
-				<td><a th:href="@{/editchar/{id}(id=${character.id})}" class="btn btn-outline-success">Edit</a></td>
+				<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/editchar/{id}(id=${character.id})}" class="btn btn-outline-success">Edit</a></td>
 				<td sec:authorize="hasAuthority('ADMIN')"><a class="btn btn-outline-danger" th:href="@{/deletechar/{id}(id=${character.id})}">Delete</a></td>
 			</tr>
 		
