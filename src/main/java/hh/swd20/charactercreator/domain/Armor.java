@@ -47,6 +47,11 @@ public class Armor {
 		
 	}
 
+	@Override
+	public String toString() {
+		return "Armor [id=" + id + ", name=" + name + ", defenceBuff=" + defenceBuff + ", speedBuff=" + speedBuff + "]";
+	}
+
 
 
 

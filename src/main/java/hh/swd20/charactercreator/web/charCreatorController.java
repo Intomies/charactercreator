@@ -106,7 +106,7 @@ public class charCreatorController {
 
 	// Edit Character
 	@PreAuthorize("hasAuthority('ADMIN')")
-	@RequestMapping(value = "/editchar/{id}")
+	@RequestMapping(value="/editchar/{id}")
 	public String editChar(@PathVariable("id") Long charId, Model model) {
 		model.addAttribute("character", charRepo.findById(charId));
 		model.addAttribute("races", raceRepo.findAll());

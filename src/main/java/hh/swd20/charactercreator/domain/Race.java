@@ -68,4 +68,12 @@ public class Race {
 		this.basicArmor = basicArmor;
 
 	}
+
+	@Override
+	public String toString() {
+		return "Race [id=" + id + ", name=" + name + ", buffStr=" + buffStr + ", buffDex=" + buffDex + ", buffCon="
+				+ buffCon + ", buffWis=" + buffWis + ", buffInte=" + buffInte + ", buffCha=" + buffCha
+				+ ", mainBasicDamage=" + mainBasicDamage + ", offBasicDamage=" + offBasicDamage + ", basicArmor="
+				+ basicArmor + "]";
+	}
 }

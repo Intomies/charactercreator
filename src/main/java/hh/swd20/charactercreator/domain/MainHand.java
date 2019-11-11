@@ -46,4 +46,10 @@ public class MainHand {
 		this.defence = defence;
 		this.speed = speed;
 	}
+
+	@Override
+	public String toString() {
+		return "MainHand [id=" + id + ", name=" + name + ", damage=" + damage + ", defence=" + defence + ", speed="
+				+ speed + "]";
+	}
 }
