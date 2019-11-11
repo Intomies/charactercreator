@@ -3,10 +3,13 @@ package hh.swd20.charactercreator.web;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -85,9 +88,20 @@ public class charCreatorController {
 
 	// Save new character
 	@PostMapping("/addownchar")
-	public String saveChar(@ModelAttribute Character character) {
+	public String saveChar(@Valid Character character, BindingResult bindingResult, Model model) {
+		
+		
+		if (bindingResult.hasErrors()) {
+			model.addAttribute("character", new Character());
+			model.addAttribute("races", raceRepo.findAll());
+			model.addAttribute("armors", armorRepo.findAll());
+			model.addAttribute("mainhands", mhRepo.findAll());
+			model.addAttribute("offhands", ohRepo.findAll());
+			return "addownchar";
+		}	
 		charRepo.save(character);
 		return "redirect:/charlist";
+		
 	}
 
 	// Edit Character

@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -24,11 +26,31 @@ public class Character {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
+	
+	
+	
+	@Min(value = 3, message = "Strength should not be less than 3")
+	@Max(value = 18, message = "Strength should not be greater than 18")
 	private int str;
+	
+	@Max(value = 18, message = "Dexterity should not be greater than 18")
+	@Min(value = 3, message = "Dexterity should not be less than 3")
 	private int dex;
+	
+	@Max(value = 18, message = "Constitution should not be greater than 18")
+	@Min(value = 3, message = "Constitution should not be less than 3")
 	private int con;
+	
+	@Max(value = 18, message = "Wisdom should not be greater than 18")
+	@Min(value = 3, message = "Wisdom should not be less than 3")
 	private int wis;
+	
+	@Max(value = 18, message = "Intelligence should not be greater than 18")
+	@Min(value = 3, message = "Intelligence should not be less than 3")
 	private int inte;
+	
+	@Max(value = 18, message = "Strength should not be greater than 18")
+	@Min(value = 3, message = "Charisma should not be less than 3")
 	private int cha;
 
 	@ManyToOne(fetch=FetchType.LAZY)

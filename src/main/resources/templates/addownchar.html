@@ -53,22 +53,29 @@
 				<td>
 				<p>Strength: <input type="number" th:field="${character.str}"/></p>
 				</td>
+				<tr><td th:if="${#fields.hasErrors('str')}">Error</td></tr>
 				<td>
 				<p>Constitution: <input type="number" th:field="${character.con}"/></p>
 				</td>
+				<tr><td th:if="${#fields.hasErrors('con')}">Error</td></tr>
 				<td>
 				<p>Dexterity: <input type="number" th:field="${character.dex}"/></p>
 				</td>
+				<tr><td th:if="${#fields.hasErrors('dex')}">Error</td></tr>
 				<td>
 				<p>Wisdom: <input type="number" th:field="${character.wis}"/></p>
 				</td>
+				<tr><td th:if="${#fields.hasErrors('wis')}">Error</td></tr>
 				<td>
 				<p>Intelligence: <input type="number" th:field="${character.inte}"/></p>
 				</td>
+				<tr><td th:if="${#fields.hasErrors('inte')}">Error</td></tr>
 				<td>
 				<p>Charisma: <input type="number" th:field="${character.cha}"/></p>
 				</td>
+				<tr><td th:if="${#fields.hasErrors('cha')}">Error</td></tr>
 			</tr>
+			
 		</table>
 		<div style="clear: both; display: block; height: 10px;"></div>
 
