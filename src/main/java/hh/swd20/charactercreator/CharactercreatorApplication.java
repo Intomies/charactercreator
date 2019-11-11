@@ -89,7 +89,7 @@ public class CharactercreatorApplication {
 			raceList.add(dwarf);
 
 			log.info("Create some Characters");
-			
+
 			for (int i = 0; i <= 3; i++) {
 				genRandomChar(charRepo, raceList, armorList, mhList, ohList);
 			}
@@ -103,21 +103,22 @@ public class CharactercreatorApplication {
 
 		};
 	}
-	
-	public void genRandomChar(CharacterRepo charRepo, List<Race> raceList, List<Armor> armorList, List<MainHand> mhList, List<OffHand> ohList) {
+
+	public void genRandomChar(CharacterRepo charRepo, List<Race> raceList, List<Armor> armorList, List<MainHand> mhList,
+			List<OffHand> ohList) {
 		Random ran = new Random();
-		
+
 		charRepo.save(new Character(genName() + " " + genName(), ran.nextInt(15) + 3, ran.nextInt(15) + 3,
-				ran.nextInt(15) + 3, ran.nextInt(15) + 3, ran.nextInt(15) + 3, ran.nextInt(15) + 3, 0, 0, 0, 0, 0,
-				0, 3, raceList.get(ran.nextInt(raceList.size())), armorList.get(ran.nextInt(armorList.size())),
+				ran.nextInt(15) + 3, ran.nextInt(15) + 3, ran.nextInt(15) + 3, ran.nextInt(15) + 3, 0, 0, 0, 0, 0, 0, 3,
+				raceList.get(ran.nextInt(raceList.size())), armorList.get(ran.nextInt(armorList.size())),
 				ohList.get(ran.nextInt(ohList.size())), mhList.get(ran.nextInt(mhList.size()))));
-		
+
 	}
 
 	private String genName() {
 		log.info("Create name");
 		Random ran = new Random();
-		String cylls = "ara,gorn,gim,li,grish,nak,boro,mir,fara,lego,las,fro,do,bag,gins"
+		String cylls = "ara,gorn,gim,li,grish,nak,sna,ga,ug,luk,boro,mir,fara,lego,las,fro,do,bag,gins"
 				+ ",sam,gam,gi,meri,a,doc,ran,di,buk,pe,reg,rin,tuk,gan,dalf,el,rond"
 				+ ",dene,thor,eo,wyn,ar,wen,ga,lad,ri,el,gil,gol,lum,tho,rin,bom,ba"
 				+ ",dil,tom,lut,hi,en,fi,ki,li,bur,theo,den,bil,bo";

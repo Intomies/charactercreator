@@ -37,6 +37,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		    .anyRequest()
 		        .authenticated()
 		        .and()
+        .authorizeRequests()
+        	.antMatchers("/editchar/{id}", "/deletechar/{id}", "/addownarmor", 
+        				"/editarmor/{id}", "/deletearmor/{id}", "/addownrace",
+        				"/editrace/{id}", "/deleterace/{id}")
+        	.hasAuthority("ADMIN")
+        		.and()
 		.authorizeRequests()
 			.antMatchers("/h2-console/**")
 				.permitAll()
